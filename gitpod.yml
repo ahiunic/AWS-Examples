@@ -1,0 +1,6 @@
+tasks:
+  - name: Setup AWS CLI
+    init: |
+      sudo apt-get update && sudo apt-get install -y awscli
+image:
+  file: .gitpod.Dockerfile

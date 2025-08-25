@@ -1,29 +1,28 @@
-# List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: aws cli
-   before:
-   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+    before: |
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+      mkdir -p ~/.aws
+      cat > ~/.aws/credentials <<EOF
+      [default]
+      aws_access_key_id = example
+      aws_secret_access_key = example
+      EOF
+      cat > ~/.aws/config <<EOF
+      [default]
+      region = us-east-1
+      output = json
+      EOF
+    command: |
+      cd AWS-Examples
+      echo "Workspace started inside AWS-Examples folder"
 
-AWS_ACCESS_KEY_ID=AKIA4O2IPJI2QJJJDHF6
-AWS_SECRET_ACCESS_KEY=dZbfxCpU1CLrFE8HGrhPI0yycs9NvtXuEBrV0BaV
-Default region name [None]: us-east-1
-Default output format [None]: json
-
-
-
-aws_access_key_id = AKIA4O2IPJI2VTI5NIUO
-aws_secret_access_key = 6IqNYtbTADrbC6e6tlzuMuP5jCGPB0X9S6IQ/K7MDENG/bPxRfiCYEXAMPLEKEY
-region = us-east-1
-output = json
-
-
-# List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
   - name: Frontend
     description: Port 3000 for the frontend
     port: 3000
     onOpen: open-preview
 
-# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+workspaceLocation: AWS-Examples

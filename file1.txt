@@ -1,0 +1,3 @@
+
+This is file1 content
+aws s3 sync $2 s3://$1 --delete
