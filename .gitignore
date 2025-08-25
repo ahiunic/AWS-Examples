@@ -1,0 +1,7 @@
+# Ignore AWS CLI installation files
+aws/
+awscliv2.zip
+echo "yes" >> .gitignore
+echo "yes.pub" >> .gitignore
+git add .gitignore
+git commit -m "Update .gitignore to ignore unnecessary files"
