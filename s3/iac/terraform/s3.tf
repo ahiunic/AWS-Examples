@@ -1,7 +1,5 @@
-
-
 resource "aws_s3_bucket" "my-s3-bucket-abhiunic" {
-  bucket = "my-tf-test-bucket"
+  bucket = "my-tf-test-bucket-abhiunic"
 
   tags = {
     Name        = "My bucket"
