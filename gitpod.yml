@@ -17,19 +17,7 @@ tasks:
     init: |
       ./bin/aws_cli_install.sh
 
-  # random utilities
-  - name: utils
-    before: |
-      sudp apt-get install tree
-  # https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.4
-  # https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-linux-mac.html
-  # https://docs.aws.amazon.com/powershell/latest/reference/
-  #- name: powershell
-  #  before: |
-  #    ./bin/powershell_cli_install.sh
-  # https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-  - name: aws-cli
-    env:
-      AWS_CLI_AUTO_PROMPT: on-partial
-    before: |
-      ./bin/aws_cli_install.sh
+  # Uncomment when you want to install PowerShell on Ubuntu
+  # - name: powershell
+  #   init: |
+  #     ./bin/powershell_cli_install.sh
