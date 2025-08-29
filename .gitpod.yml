@@ -4,11 +4,13 @@ tasks:
       npm i -g aws-cdk
   - name: terraform
     before: |
-      ./bin/terraform_cli_install.sh
+      curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      sudo apt-get update && sudo apt-get install terraform
   # random utilities
-  - name: utils
+  - name: utils 
     before: |
-      sudp apt-get install tree
+      sudo apt-get install tree
   # https://learn.microsoft.com/en-us/powershell/scripting/install/install-ubuntu?view=powershell-7.4
   # https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up-linux-mac.html
   # https://docs.aws.amazon.com/powershell/latest/reference/
